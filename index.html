@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Mayur Rajaram Chavan — third-year Computer Engineering student building websites and Python tools for small businesses. Based in India, working with remote clients worldwide." />
+<link rel="icon" href="data:," />
+<title>Mayur Chavan — Portfolio</title>
+<style>
+  :root{
+    --bg:#fbfaf7;
+    --surface:#ffffff;
+    --text:#1b1e23;
+    --muted:#5a6068;
+    --faint:#8a9099;
+    --line:#e3e0d8;
+    --line-strong:#d4d0c4;
+    --accent:#1d4e89;
+    --accent-hover:#163d6b;
+    --accent-soft:#eef3f8;
+    --tag-bg:#f1efe9;
+    --tag-text:#4a4f57;
+    --footer-bg:#1b1e23;
+    --footer-text:#e8e6e0;
+    --footer-muted:#a8adb5;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#131518;
+      --surface:#1a1d21;
+      --text:#eceae6;
+      --muted:#a9adb3;
+      --faint:#7d838c;
+      --line:#2a2e33;
+      --line-strong:#363b42;
+      --accent:#8ab0e6;
+      --accent-hover:#a9c4ef;
+      --accent-soft:#1e2a3a;
+      --tag-bg:#24282e;
+      --tag-text:#c2c6cc;
+      --footer-bg:#0e1012;
+      --footer-text:#eceae6;
+      --footer-muted:#8f959e;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent); text-decoration:none}
+  a:hover{color:var(--accent-hover); text-decoration:underline; text-underline-offset:3px}
+  .wrap{max-width:860px; margin:0 auto; padding:0 24px}
+
+  /* Top bar */
+  header.top{
+    border-bottom:1px solid var(--line);
+    background:var(--bg);
+  }
+  .top-inner{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    padding-top:14px; padding-bottom:14px;
+  }
+  .brand{font-weight:700; font-size:17px; letter-spacing:-0.01em; color:var(--text)}
+  .brand span{font-weight:400; color:var(--muted)}
+  nav{display:flex; flex-wrap:wrap; gap:4px}
+  nav a{
+    color:var(--text); font-size:15px; padding:10px 12px; min-height:40px; display:inline-flex; align-items:center;
+    border-radius:6px;
+  }
+  nav a:hover{background:var(--tag-bg); text-decoration:none; color:var(--text)}
+
+  /* Hero */
+  .hero{padding:56px 0 44px}
+  .hero h1{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 6vw, 54px);
+    line-height:1.08; letter-spacing:-0.02em; font-weight:700;
+    margin:0 0 14px;
+  }
+  .hero .role{
+    font-size:20px; line-height:1.45; color:var(--text); margin:0 0 18px; max-width:640px;
+  }
+  .hero .role strong{font-weight:600}
+  .hero p{color:var(--muted); max-width:640px; margin:0 0 16px}
+  .hero p:last-of-type{margin-bottom:0}
+  .meta-line{
+    display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:22px; font-size:15px; color:var(--muted);
+  }
+  .meta-line b{color:var(--text); font-weight:600}
+  .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; min-height:44px;
+    padding:10px 20px; border-radius:7px; font-size:15.5px; font-weight:600; border:1px solid transparent;
+  }
+  .btn:hover{text-decoration:none}
+  .btn-primary{background:var(--text); color:var(--bg); border-color:var(--text)}
+  .btn-primary:hover{background:var(--accent-hover); border-color:var(--accent-hover); color:#fff}
+  @media (prefers-color-scheme: dark){ .btn-primary:hover{color:#0e1012} }
+  .btn-secondary{background:transparent; color:var(--text); border-color:var(--line-strong)}
+  .btn-secondary:hover{border-color:var(--text); color:var(--text)}
+
+  /* Sections */
+  section{padding:40px 0; border-top:1px solid var(--line)}
+  section h2{
+    font-size:13px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint);
+    font-weight:700; margin:0 0 8px;
+  }
+  section .section-intro{color:var(--muted); margin:0 0 26px; max-width:640px; font-size:16px}
+
+  /* What I do */
+  .do-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px}
+  .do-grid h3{font-size:17px; margin:0 0 6px; font-weight:650}
+  .do-grid p{margin:0; color:var(--muted); font-size:16px}
+
+  /* Projects */
+  .project{
+    display:grid; grid-template-columns: 1fr auto; gap:6px 24px;
+    padding:22px 0; border-top:1px solid var(--line);
+  }
+  .project:first-of-type{border-top:none; padding-top:6px}
+  .project h3{margin:0; font-size:18.5px; line-height:1.3}
+  .project h3 a{color:var(--text)}
+  .project h3 a:hover{color:var(--accent); text-decoration:none}
+  .project p{margin:4px 0 0; color:var(--muted); font-size:16px; max-width:600px}
+  .project .side{text-align:right}
+  .tag{
+    display:inline-block; font-size:13px; font-weight:600; color:var(--tag-text); background:var(--tag-bg);
+    padding:4px 10px; border-radius:999px; white-space:nowrap;
+  }
+  .project-link{
+    display:inline-flex; align-items:center; min-height:40px; padding:6px 0; font-size:15px; font-weight:600; white-space:nowrap;
+  }
+
+  /* Research */
+  .paper{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:26px 28px;
+  }
+  .paper h3{font-family: Georgia, serif; font-size:22px; line-height:1.35; margin:0 0 10px; font-weight:700}
+  .paper .venue{color:var(--text); font-size:15.5px; margin:0 0 4px}
+  .paper .authors{color:var(--muted); font-size:15.5px; margin:0 0 18px}
+  .paper-links{display:flex; flex-wrap:wrap; gap:10px}
+  .paper-links a{
+    display:inline-flex; align-items:center; min-height:40px; padding:8px 16px;
+    border:1px solid var(--line-strong); border-radius:7px; font-size:14.5px; font-weight:600; color:var(--text);
+  }
+  .paper-links a:hover{border-color:var(--accent); color:var(--accent); text-decoration:none}
+
+  /* Skills */
+  .skills{display:flex; flex-wrap:wrap; gap:10px; list-style:none; margin:6px 0 0; padding:0}
+  .skills li{
+    font-size:16px; font-weight:550; padding:10px 18px; border:1px solid var(--line-strong); border-radius:7px; background:var(--surface);
+  }
+  .edu{margin-top:26px; color:var(--muted); font-size:16px}
+  .edu b{color:var(--text)}
+
+  /* Contact / footer */
+  footer{background:var(--footer-bg); color:var(--footer-text); margin-top:8px}
+  .footer-inner{padding:44px 0 36px}
+  footer h2{font-size:26px; font-family:Georgia, serif; margin:0 0 10px; letter-spacing:-0.01em}
+  footer p{color:var(--footer-muted); margin:0 0 24px; max-width:560px}
+  .contact-links{display:flex; flex-wrap:wrap; gap:12px}
+  .contact-links a{
+    display:inline-flex; align-items:center; min-height:46px; padding:10px 20px; border-radius:7px;
+    border:1px solid #3a3f46; color:var(--footer-text); font-weight:600; font-size:15.5px;
+  }
+  .contact-links a:hover{border-color:#8ab0e6; color:#fff; text-decoration:none}
+  .contact-links a.primary{background:#eceae6; color:#131518; border-color:#eceae6}
+  .contact-links a.primary:hover{background:#fff}
+  .fineprint{margin-top:32px; padding-top:20px; border-top:1px solid #2c3036; font-size:14px; color:var(--footer-muted); display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between}
+
+  @media (max-width:640px){
+    body{font-size:16.5px}
+    .wrap{padding:0 20px}
+    .hero{padding:40px 0 36px}
+    .do-grid{grid-template-columns:1fr; gap:22px}
+    .project{grid-template-columns:1fr}
+    .project .side{text-align:left; display:flex; align-items:center; gap:14px; margin-top:4px}
+    .paper{padding:22px 20px}
+    section{padding:34px 0}
+    .top-inner{padding-top:10px; padding-bottom:10px}
+    nav a{padding:8px 10px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <div class="brand">Mayur Chavan <span>— Portfolio</span></div>
+    <nav aria-label="Page sections">
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Intro -->
+  <div class="hero">
+    <h1>Mayur Rajaram Chavan</h1>
+    <p class="role">I build <strong>websites and Python tools for small businesses</strong>.</p>
+    <p>Third-year Computer Engineering student at Jaihind College of Engineering, Pune (SPPU), learning full-stack development. I am looking for freelance web work with remote clients.</p>
+    <p>Based in India, working with remote clients worldwide. If you need a clear, working website or a small tool that saves you time, I can build it and explain every part of it.</p>
+    <div class="meta-line">
+      <span><b>Location:</b> Pune, India</span>
+      <span><b>Work:</b> Remote, worldwide</span>
+      <span><b>Status:</b> Open to freelance projects</span>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="#projects">See my projects</a>
+      <a class="btn btn-secondary" href="https://github.com/Mayurchavan2005" target="_blank" rel="noopener">GitHub profile</a>
+      <a class="btn btn-secondary" href="mailto:911mayurchavan@gmail.com">Email me</a>
+    </div>
+  </div>
+
+  <!-- What I do -->
+  <section aria-labelledby="what-heading">
+    <h2 id="what-heading">What I do</h2>
+    <div class="do-grid">
+      <div>
+        <h3>Websites for small businesses</h3>
+        <p>Business websites, restaurant sites, and landing pages — with menus, reviews, enquiry and booking forms, and pages that read well on a phone.</p>
+      </div>
+      <div>
+        <h3>Python tools</h3>
+        <p>Small, practical programs that fix everyday problems — checking why a PC is slow, sorting messy folders, tracking habits. Plain output, no unnecessary setup.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Projects</h2>
+    <p class="section-intro">The Python tools and the Rudra Travels site are on GitHub — open one to read what it does and how to run it. Trattoria Enzo opens as a live demo site.</p>
+
+    <article class="project">
+      <div>
+        <h3><a href="https://github.com/Mayurchavan2005/pc-doctor" target="_blank" rel="noopener">PC Doctor</a></h3>
+        <p>Explains in plain English why a PC is slow, with a health score and safe cleanup.</p>
+      </div>
+      <div class="side">
+        <span class="tag">Python</span><br>
+        <a class="project-link" href="https://github.com/Mayurchavan2005/pc-doctor" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3><a href="https://github.com/Mayurchavan2005/file-organizer" target="_blank" rel="noopener">File Organizer</a></h3>
+        <p>Sorts a messy folder into sub-folders by file type, with dry-run and undo.</p>
+      </div>
+      <div class="side">
+        <span class="tag">Python</span><br>
+        <a class="project-link" href="https://github.com/Mayurchavan2005/file-organizer" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3><a href="https://github.com/Mayurchavan2005/habit-streak-tracker" target="_blank" rel="noopener">Habit Streak Tracker</a></h3>
+        <p>Track daily habits, count streaks, with one grace day a week.</p>
+      </div>
+      <div class="side">
+        <span class="tag">Python</span><br>
+        <a class="project-link" href="https://github.com/Mayurchavan2005/habit-streak-tracker" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3><a href="https://github.com/Mayurchavan2005/Rudra-Travels-Amol-Garage" target="_blank" rel="noopener">Rudra Travels &amp; Amol Garage</a></h3>
+        <p>Website for a local travel and garage business.</p>
+      </div>
+      <div class="side">
+        <span class="tag">React + Vite</span><br>
+        <a class="project-link" href="https://github.com/Mayurchavan2005/Rudra-Travels-Amol-Garage" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3><a href="https://muse.ai/s/trattoria-enzo-xxq6xaoxlxixd7j3/498mlB5Q3FoZfZvj_At-lgTFZ0Z_bnCSzMiG_JEfQ18" target="_blank" rel="noopener">Trattoria Enzo</a></h3>
+        <p>Demo restaurant website for a fictional Italian trattoria — menu, reviews, and a table booking form.</p>
+      </div>
+      <div class="side">
+        <span class="tag">Website demo</span><br>
+        <a class="project-link" href="https://muse.ai/s/trattoria-enzo-xxq6xaoxlxixd7j3/498mlB5Q3FoZfZvj_At-lgTFZ0Z_bnCSzMiG_JEfQ18" target="_blank" rel="noopener">View live site &rarr;</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- Research -->
+  <section id="research" aria-labelledby="research-heading">
+    <h2 id="research-heading">Research</h2>
+    <p class="section-intro">One published review paper from my studies.</p>
+    <div class="paper">
+      <h3>Limitations of Generative AI in Content Creation: A Review</h3>
+      <p class="venue">IJSRET — International Journal of Scientific Research in Engineering and Technology, Vol. 12, Issue 5, Sep–Oct 2026</p>
+      <p class="authors">Mayur Rajaram Chavan, with Prof. Abhishek Popat Bangar, Prof. S. B. Bhosale, and Prof. Karad V. A.</p>
+      <div class="paper-links">
+        <a href="https://doi.org/10.5281/zenodo.23562679" target="_blank" rel="noopener">Read the paper (DOI)</a>
+        <a href="https://github.com/Mayurchavan2005/limitations-of-generative-ai-in-content-creation" target="_blank" rel="noopener">Code on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" aria-labelledby="skills-heading">
+    <h2 id="skills-heading">Skills</h2>
+    <ul class="skills">
+      <li>Python</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Git</li>
+      <li>GitHub</li>
+    </ul>
+    <p class="edu"><b>Education:</b> B.E. Computer Engineering, third year — Jaihind College of Engineering, Pune. Affiliated to Savitribai Phule Pune University (SPPU). Currently learning full-stack development.</p>
+  </section>
+
+</main>
+
+<!-- Contact -->
+<footer id="contact">
+  <div class="wrap footer-inner">
+    <h2>Get in touch</h2>
+    <p>Have a website to build or a small tool you need? Send me an email with what you have in mind, or look through my work on GitHub first.</p>
+    <div class="contact-links">
+      <a class="primary" href="mailto:911mayurchavan@gmail.com">911mayurchavan@gmail.com</a>
+      <a href="https://github.com/Mayurchavan2005" target="_blank" rel="noopener">github.com/Mayurchavan2005</a>
+    </div>
+    <div class="fineprint">
+      <span>Mayur Rajaram Chavan — Pune, India</span>
+      <span>Websites &amp; Python tools for small businesses</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
